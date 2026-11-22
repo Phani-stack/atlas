@@ -1,0 +1,98 @@
+/* ==========================================================================
+   RESOURCE ATLAS — DESIGN TOKENS
+   Theme: The Atlas (Cartography & Field Notes)
+   ========================================================================== */
+
+:root {
+  /* Canvas & Surfaces (Warm Paper) */
+  --bg-canvas: #F5F2EA;
+  --bg-surface: #FAF8F3;
+  --bg-subtle: #EDE8DC;
+  --bg-muted: #E4DECFC0;
+  --bg-hover: #E9E4D7;
+  --bg-active: #E0DACB;
+
+  /* Borders (1px Hairline) */
+  --border-hairline: #DDD8CB;
+  --border-strong: #BBB5A2;
+  --border-focus: #1B1A17;
+
+  /* Typography Colors (Ink on Paper) */
+  --text-primary: #1B1A17;
+  --text-secondary: #635F54;
+  --text-tertiary: #928D80;
+  --text-inverse: #FAF8F3;
+
+  /* Single Primary Accent (Deep Vermilion) */
+  --accent: #C2410C;
+  --accent-hover: #9A3412;
+  --accent-subtle: #FDF2E9;
+  --accent-border: #FDBA74;
+  --accent-contrast: #FFFFFF;
+
+  /* Status Colors (Always paired with text or icon) */
+  --status-success: #166534;
+  --status-success-bg: #F0FDF4;
+  --status-success-border: #BBF7D0;
+
+  --status-warning: #854D0E;
+  --status-warning-bg: #FEFCE8;
+  --status-warning-border: #FEF08A;
+
+  --status-danger: #991B1B;
+  --status-danger-bg: #FEF2F2;
+  --status-danger-border: #FECACA;
+
+  /* Typography Families */
+  --font-serif: "Newsreader", "Charter", "Bitstream Charter", "Sitka Text", Cambria, Georgia, serif;
+  --font-sans: "Geist", "Instrument Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Radii (6-8px max, no oversized pills) */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 7px;
+  --radius-lg: 8px;
+
+  /* Motion */
+  --transition-fast: 140ms ease-out;
+  --transition-base: 180ms ease-out;
+}
+
+/* Dark Theme (Warm Charcoal, NEVER Navy) */
+[data-theme="dark"],
+.dark {
+  --bg-canvas: #171613;
+  --bg-surface: #1E1D19;
+  --bg-subtle: #272520;
+  --bg-muted: #302E28;
+  --bg-hover: #2B2924;
+  --bg-active: #36332D;
+
+  --border-hairline: #2E2C26;
+  --border-strong: #47433B;
+  --border-focus: #ECE8DF;
+
+  --text-primary: #ECE8DF;
+  --text-secondary: #9E988D;
+  --text-tertiary: #757065;
+  --text-inverse: #171613;
+
+  --accent: #EA580C;
+  --accent-hover: #FB923C;
+  --accent-subtle: #2C180E;
+  --accent-border: #7C2D12;
+  --accent-contrast: #FFFFFF;
+
+  --status-success: #4ADE80;
+  --status-success-bg: #052E1680;
+  --status-success-border: #14532D;
+
+  --status-warning: #FACC15;
+  --status-warning-bg: #3A2E0780;
+  --status-warning-border: #713F12;
+
+  --status-danger: #F87171;
+  --status-danger-bg: #450A0A80;
+  --status-danger-border: #7F1D1D;
+}
