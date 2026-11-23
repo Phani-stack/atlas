@@ -10,8 +10,6 @@ The problem is not the lack of learning resources. It is finding the right learn
 
 Atlas is an adaptive learning platform that creates personalized learning journeys based on a learner's existing knowledge, goals, and performance.
 
-![Atlas Platform](/static/your-image-filename.png)
-
 Instead of following the same roadmap, learners receive relevant resources, personalized assessments, and learning activities that adapt as they progress.
 
 ## How It Works
