@@ -89,6 +89,10 @@ We want to build a learning system where progress is measured by understanding r
 
 Atlas aims to make learning more personal, adaptive, and goal-oriented.
 
+
+## Project Flow
+![Project Flow](./static/diagram.png)
+
 ## Prototype Images
 
 ### 1. User Registration
