@@ -61,16 +61,36 @@ We want to build a learning system where progress is measured by understanding r
 
 Atlas aims to make learning more personal, adaptive, and goal-oriented.
 
-# prototype images
+## Prototype Images
+
+Multiple users can register
 ![Atlas Dashboard](./static/sample_image_1.png)
+
+A user have multiple space - each space have it's own learing path
 ![Atlas Dashboard](./static/sample_image_2.png)
+
+A user can enter anything that he/she want to learn
 ![Atlas Dashboard](./static/sample_image_3.png)
+
+Ignore what you already learnt and set your target
 ![Atlas Dashboard](./static/sample_image_4.png)
+
+Personalized roadmap and beloning resources
 ![Atlas Dashboard](./static/sample_image_5.png)
+
+Every resource and it's status
 ![Atlas Dashboard](./static/sample_image_6.png)
+
+Current modules information and tracking
 ![Atlas Dashboard](./static/sample_image_7.png)
+
+AI creates dynamic questions based on your knowledge, goals and previous answers
 ![Atlas Dashboard](./static/sample_image_8.png)
+
+Gives proper explaination of wrong answers
 ![Atlas Dashboard](./static/sample_image_9.png)
+
+Adaptive learning and question making by AI
 ![Atlas Dashboard](./static/sample_image_10.png)
 
 **Atlas — A smarter way to understand how you learn.**
