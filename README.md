@@ -1,13 +1,14 @@
 <p align="center">
-  <a href="#atlas-learning-that-understands-you">About</a> •
-  <a href="#our-solution">Solution</a> •
-  <a href="#how-it-works">How It Works</a> •
-  <a href="#key-features">Features</a> •
-  <a href="#technology-stack">Tech Stack</a> •
-  <a href="#future-development">Future Development</a> •
-  <a href="#our-vision">Vision</a> •
+  <a href="#atlas-learning-that-understands-you">About</a><br>
+  <a href="#our-solution">Solution</a><br>
+  <a href="#how-it-works">How It Works</a><br>
+  <a href="#key-features">Features</a><br>
+  <a href="#technology-stack">Tech Stack</a><br>
+  <a href="#future-development">Future Development</a><br>
+  <a href="#our-vision">Vision</a><br>
   <a href="#prototype-images">Prototype Images</a>
 </p>
+
 
 ---
 
