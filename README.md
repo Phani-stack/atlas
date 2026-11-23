@@ -1,125 +1,76 @@
 # ATLAS — Learning That Understands You
 
-### What if a learning platform could understand what you already know, identify what you need to improve, and decide what you should learn next?
+What if a learning platform could understand what you already know, identify your knowledge gaps, and guide you on what to learn next?
 
-Why should every learner follow the same roadmap?
+Most learning platforms provide predefined courses and fixed learning paths. But every learner has different goals, experience, and learning speed.
 
-Why should someone who already understands the fundamentals spend time learning them again?
+The problem is not the lack of learning resources. It is finding the right learning path for each individual.
 
-How can we know whether a learner has actually understood a concept rather than simply completed a lesson?
+## Our Solution
 
-What happens when a learner moves forward without understanding the basics?
+Atlas is an adaptive learning platform that creates personalized learning journeys based on a learner's existing knowledge, goals, and performance.
 
-Most learning platforms deliver predefined content and follow fixed learning paths. They focus on course completion rather than measuring actual understanding.
+![Atlas Platform](/static/your-image-filename.png)
 
-**The problem is not the lack of learning resources. It is the lack of learning systems that adapt to individual learners.**
+Instead of following the same roadmap, learners receive relevant resources, personalized assessments, and learning activities that adapt as they progress.
 
-## Our Solution: Atlas
+## How It Works
 
-**Atlas is an AI-powered adaptive learning platform that builds personalized learning journeys based on what learners know, what they want to achieve, and how they perform.**
+1. **Understand the Learner** — Identify existing knowledge, goals, and available study time.
+2. **Build a Roadmap** — Generate structured learning paths with modules, prerequisites, and objectives.
+3. **Discover Resources** — Find relevant materials from websites, documentation, YouTube, and academic sources.
+4. **Practice and Assess** — Generate questions, problems, and coding challenges.
+5. **Track Understanding** — Measure concept-level mastery, identify weaknesses, and adjust difficulty.
+6. **Adapt Continuously** — Update upcoming learning activities based on learner performance.
 
-Instead of providing the same learning experience to everyone, Atlas continuously analyzes learner progress, identifies knowledge gaps, and adapts upcoming learning activities.
+## Key Features
 
-Our objective is to move beyond content delivery and create a system that understands the learner's knowledge and guides their progress.
+- Knowledge-aware personalized roadmaps.
+- Adaptive assessments and difficulty levels.
+- Learning resource discovery from multiple sources.
+- Concept-level progress and mastery tracking.
+- RAG-based learning assistance.
+- Support for multiple subjects and disciplines.
 
-## How Atlas Works
+## Technology Stack
 
-**1. Understand the Learner**
-
-Atlas collects the learner's existing knowledge, learning goals, and available study time to establish a starting point.
-
-**2. Generate a Personalized Roadmap**
-
-Creates a structured learning path with prerequisites, modules, learning objectives, exercises, and relevant resources.
-
-**3. Discover Learning Resources**
-
-Finds relevant educational materials from multiple sources, including documentation, websites, YouTube, and academic research.
-
-**4. Adaptive Learning and Assessment**
-
-Generates contextual questions, practical problems, and coding challenges. Evaluates responses and identifies concepts that require further attention.
-
-**5. Analyze Knowledge and Adapt**
-
-Tracks concept-level mastery, identifies weaknesses, adjusts difficulty, and modifies upcoming learning modules based on actual performance.
-
-**6. Continuous Learning**
-
-Repeats the process as the learner progresses, continuously refining the learning journey toward the desired goal.
-
-## What Makes Atlas Different?
-
-- **Knowledge-Aware:** Considers existing knowledge instead of assuming everyone starts from zero.
-- **Adaptive:** Adjusts learning content and difficulty based on performance.
-- **Goal-Oriented:** Connects every learning activity to a specific learning objective.
-- **Resource-Driven:** Discovers and organizes relevant external learning materials.
-- **Performance-Based:** Measures concept-level understanding rather than just lesson completion.
-- **Domain-Independent:** Designed to support learning across different subjects and disciplines.
-
-## Technical Approach
-
-Atlas currently uses a modular architecture built around:
-
-| Component | Technology / Approach |
+| Component | Technologies |
 |---|---|
 | Frontend | React, TypeScript, Vite, Tailwind CSS |
 | Backend | Python, FastAPI |
-| AI Orchestration | LLM-based processing pipelines |
-| Language Models | Groq LLM APIs |
-| Knowledge Retrieval | RAG, Qdrant, embeddings |
-| Structured Outputs | Pydantic |
-| Resource Discovery | Web search, YouTube, arXiv, OpenAlex |
-| Persistence | SQLite, JSON, file storage |
-| Authentication | JWT, bcrypt |
+| AI | Groq LLM APIs |
+| Retrieval | RAG, Qdrant, Embeddings |
+| Resource Discovery | Web Search, YouTube, arXiv, OpenAlex |
+| Storage | SQLite, JSON, File Storage |
+| Security | JWT, bcrypt |
 
-The system connects resource discovery, roadmap generation, knowledge retrieval, assessment, and learner-state updates through dedicated processing stages.
+## Future Development
 
-## What We Plan to Build Next
+Our next phase focuses on making Atlas more intelligent and reliable through:
 
-Atlas is currently being developed as a functional prototype. Our next development phase focuses on improving its intelligence, reliability, and scalability.
-
-**1. Advanced Learning Intelligence**
-- Personal Knowledge Graph to represent concepts and dependencies.
-- Learning Digital Twin to maintain a continuously updated learner profile.
-- Knowledge-retention analysis and intelligent revision scheduling.
-- More reliable mastery measurement and assessment.
-
-**2. Autonomous Research and Learning**
-- Research agents for deeper multi-source knowledge discovery.
-- Evidence-based answer verification with source references.
-- Real-world challenges, project generation, and AI viva simulation.
-- Dynamic roadmap evolution based on learner performance.
-
-**3. Cloud Infrastructure and Scalability**
-- Docker-based containerization of application services.
-- Kubernetes for container orchestration and deployment management.
-- AWS integration for cloud infrastructure, storage, and deployment.
-- Scalable backend architecture to support concurrent learners.
-- CI/CD pipelines, monitoring, logging, and automated testing.
-
-**4. Model and Retrieval Improvements**
-- Evaluate and integrate specialized language models.
-- Explore fine-tuning for educational assessment.
-- Improve RAG accuracy, retrieval quality, and response consistency.
-- Introduce model fallback mechanisms and cost optimization.
-
-**5. Security and Reliability**
-- Stronger authentication and authorization.
-- Isolated code execution environments.
-- Secure document processing and data isolation.
-- Automated testing and production monitoring.
-
-These improvements will help evolve Atlas from a working prototype into a reliable, scalable, and intelligent learning platform.
+- Personal Knowledge Graph and Learning Digital Twin.
+- Intelligent revision and knowledge-retention tracking.
+- Autonomous research and evidence-based verification.
+- Real-world projects and AI viva simulations.
+- Docker, Kubernetes, and AWS deployment.
+- Improved model selection, retrieval, security, and scalability.
 
 ## Our Vision
 
-We believe the future of education should not be about making learners adapt to predefined courses.
+We want to build a learning system where progress is measured by understanding rather than course completion.
 
-It should be about making learning systems adapt to learners.
+Atlas aims to make learning more personal, adaptive, and goal-oriented.
 
-A system where progress is measured by understanding, where knowledge gaps are identified before they become obstacles, and where every next learning step is based on a reason.
+# prototype images
+![Atlas Dashboard](./static/sample_image_1.png)
+![Atlas Dashboard](./static/sample_image_2.png)
+![Atlas Dashboard](./static/sample_image_3.png)
+![Atlas Dashboard](./static/sample_image_4.png)
+![Atlas Dashboard](./static/sample_image_5.png)
+![Atlas Dashboard](./static/sample_image_6.png)
+![Atlas Dashboard](./static/sample_image_7.png)
+![Atlas Dashboard](./static/sample_image_8.png)
+![Atlas Dashboard](./static/sample_image_9.png)
+![Atlas Dashboard](./static/sample_image_10.png)
 
-**Atlas — Not another way to learn. A smarter way to understand how you learn.**
-
-*Built with the belief that every learner deserves a learning journey that adapts to them.*
+**Atlas — A smarter way to understand how you learn.**
