@@ -1,0 +1,337 @@
+# Resource Atlas (Atlas) - Complete Feature List
+
+## Overview
+Resource Atlas is an AI-powered adaptive learning platform that helps learners create personalized study roadmaps, discover high-quality educational resources, and practice with an adaptive tutor engine. The application consists of a React/Vite frontend (client/) and a FastAPI Python backend (server/).
+
+---
+
+## 1. Resource Discovery & Collection
+
+### Multi-Source Search
+- **Web Search**: Searches DuckDuckGo for tutorials, documentation, guides, slide decks, and code examples
+- **Video Search**: Searches YouTube for technical lectures, walkthroughs, and complete courses
+- **Academic Papers**: Searches arXiv and OpenAlex for technical papers, surveys, and specifications
+- **Parallel Search Execution**: All search providers run concurrently for faster results
+
+### Query Planning (LLM-Powered)
+- Generates tailored search queries based on:
+  - Target topic/subject
+  - Learner's current knowledge level (what they already know)
+  - Specific learning goal/specialization
+  - Avoids redundant beginner content when learner has prior knowledge
+- Falls back to deterministic query templates if LLM unavailable
+
+### Resource Ranking & Filtering
+- **LLM-Based Scoring**: Scores resources 0-10 for relevance to learner's goal and level
+- **Quality Heuristics**: Rewards reputable sources (universities, official docs, known channels)
+- **Penalizes**: Spam, paywalls, off-topic content, wrong difficulty level
+- **Diversity Fallback**: Round-robin across resource types when LLM unavailable
+
+### Resource Enrichment
+- **Summaries**: 1-2 sentence descriptions of actual resource content
+- **Difficulty Rating**: beginner | intermediate | advanced
+- **Topic Tags**: 2-5 short technical topic labels
+- **Curriculum Stage**: foundation | core | advanced | practice
+- **Estimated Study Time**: Minutes for each resource
+- **Roadmap Brief**: 3-5 sentence overview of collection coverage and progression path
+- **Coverage Gaps**: Identifies goal-relevant topics not well covered by found resources
+
+### File Download & Processing
+- Downloads PDFs, slide decks (PPT), documents, and books (up to 15 files)
+- **YouTube**: Stores as links only (no video download)
+- **Parallel Downloads**: 8 concurrent workers
+- **PDF Processing**: Extracts page count and text excerpts for RAG context
+- Organizes files by type into subdirectories (papers/, pdfs/, slides/, docs/, books/)
+
+### Output
+- Saves complete resource collection as `resources.json` with full metadata
+- Includes statistics: total count, downloaded count, breakdown by type/difficulty/stage
+- Resource IDs mapped by curriculum stage for roadmap generation
+
+---
+
+## 2. Roadmap Generation
+
+### LLM-Designed Roadmaps (Primary)
+- **Pedagogical Architecture**: World-class curriculum architect prompt
+- **Goal-Targeted**: Every phase/module directly advances learner toward specific goal
+- **Knowledge-Aware**: Skips content learner already knows
+- **Four-Stage Progression**: foundation → core → advanced → practice (all required)
+- **3-5 Phases** with 2-4 modules each
+- **Module Details**:
+  - Action-oriented titles
+  - 2-3 measurable learning objectives
+  - 3-5 concrete technical concepts/APIs
+  - 1-3 primary resource IDs (from discovered collection)
+  - 0-3 supplementary resource IDs
+  - Clear rationale for resource selection
+  - 2-3 practical exercises/coding tasks
+  - Mastery checkpoint criteria
+  - Realistic time estimates (hours)
+- **Capstone Project**: Comprehensive end-to-end mastery demonstration
+- **Gap Analysis**: Topics lacking resources with suggested search queries
+
+### Deterministic Fallback Roadmaps
+- Used when LLM unavailable or produces invalid output
+- Groups resources by difficulty/stage automatically
+- Creates meaningful module content from resource metadata
+- Ensures all four stages represented (creates placeholders if empty)
+- Generates capstone from most advanced concepts
+- Populates gaps from resource finder's coverage_gaps
+
+### Schedule & Calendar
+- Calculates total estimated hours
+- Projects weeks needed based on hours_per_week setting
+- Weekly schedule: phase → week range mapping
+- Infographic rendering (Pillow) with visual timeline
+
+### Roadmap Persistence
+- Saves as JSON: `roadmaps/<topic>_roadmap.json`
+- Renders PNG infographic: `roadmaps/<topic>_roadmap.png`
+- Includes: overview, phases, modules, resources, schedule, capstone, gaps, unused resources
+
+---
+
+## 3. Adaptive Tutor Engine
+
+### Session Management
+- Per-user, per-learning-space tutor sessions
+- Thread-safe session storage with locking
+- Persistent state in JSON (`tutor_data/users/<user_id>/<space_id>/progress/state.json`)
+- Force re-index option for knowledge base updates
+
+### Knowledge Base (RAG)
+- **Vector Store**: Qdrant for semantic search
+- **Embeddings**: Groq API for text embeddings
+- **Chunking**: Smart document chunking with overlap
+- **Resource Linking**: Maps chunks back to source resources with URLs/locations
+- **Incremental Indexing**: Only re-processes new/changed resources
+
+### Adaptive Question Selection
+- **Concept Tracking**: Per-concept mastery scores (0-1) with exponential moving average
+- **Weakness Targeting**: Prioritizes untested concepts, then lowest-mastery concepts
+- **Review Cycle**: Every 3 questions, reviews weakest concept from completed modules
+- **Difficulty Adaptation**:
+  - Increases (max 5) after scores ≥ 0.8
+  - Decreases (min 1) after scores < 0.5
+  - Starts at level based on learner background (beginner=2, intermediate=3, advanced=4)
+
+### Question Types (4 Types)
+1. **MCQ**: 4 options (A-D), language-specific, with explanation
+2. **Short Answer**: 2-5 sentence conceptual/diagnostic questions
+3. **Problem**: Multi-step reasoning, code-trace scenarios
+4. **Code**:
+   - Python: Executable function with 5-6 test cases (auto-validated)
+   - Other languages: Practical challenges with reference solutions
+
+### Question Generation (LLM)
+- **RAG-Grounded**: Retrieves top-5 relevant chunks from knowledge base
+- **Context-Aware**: Includes module objectives, learner level, recent misconceptions
+- **Language Detection**: Auto-detects programming language from topic/module/concept
+- **Strict Relevance**: Must directly test target concept in target module
+- **No Repetition**: Tracks and avoids recent questions
+- **Prefetching**: Background thread generates next question while learner answers current
+
+### Automated Grading
+- **MCQ**: Exact match on answer letter
+- **Code (Python)**: Executes submitted function against hidden tests
+  - Full pass = 1.0
+  - Partial pass = 0.75 × pass_rate + 0.25 × LLM_score
+  - Runtime errors = LLM evaluation (max 0.3)
+- **Code (Other)**: LLM evaluation on correctness, idioms, edge cases
+- **Short/Problem**: LLM grading with rubric (key points, model answer, context)
+- **Hint Penalty**: -15% per hint used (max 2 hints)
+
+### Mastery Tracking & Progression
+- **Per-Concept Mastery**: EMA (0.6 old + 0.4 new) per concept
+- **Module Mastery**: EMA (0.65 old + 0.35 new) of question scores
+- **Module Completion Criteria**:
+  - Minimum questions: max(3, min(concepts, 5))
+  - Mastery ≥ 0.75
+  - Recent avg ≥ 0.7
+  - Max difficulty ≥ max(2, starting_difficulty)
+- **Gap Allowance**: After 8 questions, mastery ≥ 0.55 passes with gaps flag
+- **Hard Limit**: 12 questions max per module
+
+### Learner Preferences
+- **Focus Note**: Free-text bias for concept selection (injected into prompts)
+- **Preferred Question Types**: Doubles weight for selected types (mcq, short, problem, code)
+
+### Session Controls
+- `next_question()`: Returns prefetched or generates new
+- `hint()`: Progressive hints (2 max)
+- `submit(answer)`: Grades, updates mastery, advances if ready
+- `skip_module()`: Marks current as done with gaps, advances
+- `replay_module()`: Re-opens completed module for more practice
+- `status()`: Full progress report with per-module mastery, weak concepts, stats
+
+### Gamification
+- **XP System**: score × 10 × difficulty per question
+- **Streaks**: Consecutive scores ≥ 0.7
+- **Best Streak**: Tracked separately
+- **Stats**: Total answered, total XP, current streak, best streak
+
+---
+
+## 4. Learning Spaces & User Management
+
+### Authentication
+- JWT-based auth (access + refresh tokens)
+- Secure password hashing (bcrypt via passlib)
+- Token expiration and rotation
+- Protected API endpoints
+
+### Learning Spaces (User Projects)
+- **Create Space**: Topic + known + goal + hours_per_week → triggers full pipeline
+- **Space Status**: pending → processing → ready → error
+- **Resources**: Stores full resource collection JSON
+- **Roadmap**: Stores generated roadmap JSON
+- **Progress**: Links to tutor engine state directory
+- **List Spaces**: Paginated, user-scoped
+- **Get Space**: Full details with resources and roadmap
+- **Delete Space**: Removes space and associated data
+
+### Space-Tutor Integration
+- Start tutor session for a space (indexes resources, creates tutor)
+- Get next question, submit answer, get hint
+- View progress (module status, mastery, weak concepts, stats)
+- Set learner preferences (focus note, preferred question types)
+- Skip/replay modules
+- Reset session (clears progress, re-indexes)
+
+---
+
+## 5. REST API (FastAPI)
+
+### Endpoints
+| Endpoint | Method | Auth | Description |
+|----------|--------|------|-------------|
+| `/api/health` | GET | No | Health check |
+| `/api/auth/register` | POST | No | Register new user |
+| `/api/auth/login` | POST | No | Login, returns tokens |
+| `/api/auth/refresh` | POST | Refresh | Refresh access token |
+| `/api/auth/me` | GET | Access | Current user info |
+| `/api/learn` | POST | Access | Create learning space (full pipeline) |
+| `/api/spaces` | GET | Access | List user's spaces |
+| `/api/spaces` | POST | Access | Create space (alias for /learn) |
+| `/api/spaces/{id}` | GET | Access | Get space details |
+| `/api/spaces/{id}` | DELETE | Access | Delete space |
+| `/api/spaces/{id}/tutor/session` | POST | Access | Start tutor session |
+| `/api/spaces/{id}/tutor/question` | GET | Access | Get next question |
+| `/api/spaces/{id}/tutor/answer` | POST | Access | Submit answer |
+| `/api/spaces/{id}/tutor/hint` | POST | Access | Get hint |
+| `/api/spaces/{id}/tutor/progress` | GET | Access | Get progress status |
+| `/api/spaces/{id}/tutor/preferences` | POST | Access | Set learner preferences |
+| `/api/spaces/{id}/tutor/skip` | POST | Access | Skip current module |
+| `/api/spaces/{id}/tutor/replay` | POST | Access | Replay a module |
+| `/api/spaces/{id}/tutor/reset` | POST | Access | Reset session |
+
+### Request/Response Models (Pydantic)
+- LearnRequest: topic, known, goal, hours_per_week
+- SpaceResponse: id, topic, status, resources, roadmap, timestamps
+- QuestionResponse: id, type, prompt, hints, metadata
+- AnswerRequest: question_id, answer, seconds
+- AnswerResponse: score, verdict, feedback, covered/missing, xp, streak, mastery, module_event
+- ProgressResponse: Full tutor status with all modules
+
+---
+
+## 6. Frontend (React + Vite + TypeScript)
+
+### Pages/Components
+- **AuthPage**: Login/register forms with validation
+- **DiscoverPage**: Create new learning spaces (topic, known, goal, hours/week)
+- **ResourceLibrary**: Browse discovered resources with filters (type, stage, difficulty)
+- **RoadmapView**: Visual roadmap with phases, modules, resources, schedule, capstone
+- **PracticePanel**: Interactive tutor session (question, answer input, hints, feedback)
+- **ProgressView**: Module progress bars, mastery scores, weak concepts, stats
+- **Sidebar**: Navigation, space switching, user menu
+- **StudyForm**: Shared form for topic/known/goal input
+- **CommandPalette**: Keyboard shortcuts (Cmd+K) for quick actions
+- **ResourceCard**: Display resource with type badge, title, summary, download link
+
+### Features
+- Responsive design (mobile-friendly)
+- Real-time progress updates during practice
+- Markdown rendering for questions/answers (code blocks, formatting)
+- Syntax highlighting for code
+- Keyboard shortcuts
+- Toast notifications
+- Loading states and error handling
+
+---
+
+## 7. Infrastructure & Technical Stack
+
+### Backend (Python 3.12+)
+- **FastAPI**: ASGI web framework
+- **Uvicorn**: ASGI server (reload in dev)
+- **Pydantic**: Data validation & settings
+- **Python-JOSE/PyJWT**: JWT handling
+- **Passlib/bcrypt**: Password hashing
+- **Groq SDK**: LLM (Llama-3.1-70B) + embeddings
+- **Qdrant Client**: Vector database
+- **DDGS**: DuckDuckGo search
+- **yt-dlp**: YouTube metadata
+- **Requests**: HTTP client
+- **Trafilatura**: Web content extraction
+- **PyPDF/python-docx/python-pptx**: Document parsing
+- **Pillow**: Roadmap infographic rendering
+- **APScheduler**: Background jobs (cleanup)
+
+### Frontend
+- **React 18** + **TypeScript**
+- **Vite**: Build tool + dev server
+- **Tailwind CSS**: Styling
+- **React Router**: SPA routing
+- **Axios**: API client with interceptors
+- **React Markdown**: Markdown rendering
+- **PrismJS**: Syntax highlighting
+- **Lucide React**: Icons
+
+### Development
+- **uv**: Package manager (editable install)
+- **uv_build**: Build backend (src-layout)
+- **pytest**: Testing (19 tests passing)
+- **TypeScript**: Strict mode
+
+### Data Persistence
+- **SQLite**: User/auth/spaces metadata (`resource_atlas.sqlite3`)
+- **Qdrant**: Vector embeddings (per-space, on-disk)
+- **JSON Files**: Resource collections, roadmaps, tutor state
+- **File System**: Downloaded PDFs, slides, documents
+
+---
+
+## 8. CLI Entry Points
+
+### `atlas` command (console script)
+- Runs `src.api.main:main` → starts uvicorn on 127.0.0.1:8000 with reload
+- Serves both API and built frontend (from `ui/dist` if exists)
+
+### `src.resource_finder` module
+- `find_resources(topic, known, goal, out)` → resource collection
+- `plan(topic, known, goal, use_llm)` → search query plan
+- `rank(items, topic, known, goal, level)` → scored resources
+- `enrich(items, topic, known, goal, level)` → summaries, stages, gaps
+- `llm_json(prompt, use_llm)` → structured LLM output
+
+### `src.roadmap_generator` module
+- `generate_roadmap(resources_data, hours_per_week, save)` → roadmap
+- `learn(topic, known, goal, out, hours_per_week)` → full pipeline
+- `design_with_llm/design_fallback/assemble` → internal steps
+- `render_roadmap_image(roadmap, out_path)` → PNG infographic
+
+---
+
+## 9. Key Design Principles
+
+1. **Goal-Oriented**: Every feature targets the learner's specific goal, not generic curriculum
+2. **Knowledge-Aware**: Explicitly models what learner knows; avoids repetition
+3. **Adaptive**: Difficulty, question type, and concept selection adapt in real-time
+4. **RAG-Grounded**: Tutor questions cite actual source materials
+5. **Executable Practice**: Code questions run and validate against tests
+6. **Resilient**: LLM-free fallbacks for all critical paths
+7. **Transparent**: Shows sources, reasoning, coverage gaps
+8. **Portable**: File-based storage, no external DB dependencies for core features
+9. **Extensible**: Modular services, clean interfaces for swapping components
