@@ -1,3 +1,16 @@
+<p align="center">
+  <a href="#atlas-learning-that-understands-you">About</a> •
+  <a href="#our-solution">Solution</a> •
+  <a href="#how-it-works">How It Works</a> •
+  <a href="#key-features">Features</a> •
+  <a href="#technology-stack">Tech Stack</a> •
+  <a href="#future-development">Future Development</a> •
+  <a href="#our-vision">Vision</a> •
+  <a href="#prototype-images">Prototype Images</a>
+</p>
+
+---
+
 # ATLAS : Learning That Understands You
 
 What if a learning platform could understand what you already know, identify your knowledge gaps, and guide you on what to learn next?
@@ -34,13 +47,25 @@ Instead of following the same roadmap, learners receive relevant resources, pers
 
 | Component | Technologies |
 |---|---|
-| Frontend | React, TypeScript, Vite, Tailwind CSS |
-| Backend | Python, FastAPI |
-| AI | Groq LLM APIs |
-| Retrieval | RAG, Qdrant, Embeddings |
-| Resource Discovery | Web Search, YouTube, arXiv, OpenAlex |
-| Storage | SQLite, JSON, File Storage |
-| Security | JWT, bcrypt |
+| Frontend | React 18, TypeScript, Vite, Tailwind CSS |
+| UI & Navigation | React Router, Axios, Markdown Rendering, Prism.js |
+| Backend | Python 3.12+, FastAPI, REST APIs |
+| AI & LLM Integration | Groq API, LLM-based Processing, Prompt Engineering |
+| AI Orchestration | Modular AI Pipelines, Context-Aware Generation |
+| Knowledge Retrieval | Retrieval-Augmented Generation (RAG), Qdrant, Vector Search |
+| Embeddings | Text Embeddings, Semantic Search, Document Chunking |
+| Resource Discovery | DuckDuckGo Search, YouTube, arXiv, OpenAlex |
+| Document Processing | PDF Extraction, Document Parsing, Web Content Extraction |
+| Learning Engine | Adaptive Assessment, Dynamic Question Generation, Mastery Tracking |
+| Roadmap Engine | Personalized Roadmap Generation, Prerequisite Mapping, Learning Objectives |
+| Code Evaluation | Python Code Execution, Test-Case Evaluation, LLM-Based Assessment |
+| Data Storage | SQLite, JSON Persistence, File System Storage |
+| Authentication | JWT Access & Refresh Tokens, bcrypt Password Hashing |
+| API Communication | RESTful Architecture, Axios, JSON |
+| Background Processing | APScheduler, Parallel Resource Discovery |
+| Testing | Pytest, Automated API Testing |
+| Image Generation | Pillow, Matplotlib |
+| Development & Deployment | Git, GitHub, Uvicorn, Environment-Based Configuration |
 
 ## Future Development
 
