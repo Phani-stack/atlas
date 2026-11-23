@@ -1,13 +1,19 @@
-<p align="center">
-  <a href="#atlas-learning-that-understands-you">About</a> •
-  <a href="#our-solution">Solution</a> •
-  <a href="#how-it-works">How It Works</a> •
-  <a href="#key-features">Features</a> •
-  <a href="#technology-stack">Tech Stack</a> •
-  <a href="#future-development">Future Development</a> •
-  <a href="#our-vision">Vision</a> •
-  <a href="#prototype-images">Prototype Images</a>
-</p>
+<div align="left">
+
+### Navigation
+
+- <a href="#atlas-learning-that-understands-you">About Atlas</a> - Introduction and the problem Atlas addresses.
+- <a href="#our-solution">Our Solution</a> - What Atlas does and how it helps learners.
+- <a href="#how-it-works">How It Works</a> - Step-by-step learning workflow.
+- <a href="#key-features">Key Features</a> - Main capabilities of the platform.
+- <a href="#technology-stack">Technology Stack</a> - Technologies and tools used to build Atlas.
+- <a href="#future-development">Future Development</a> - Planned improvements and upcoming features.
+- <a href="#our-vision">Our Vision</a> - The long-term goal of Atlas.
+- <a href="#prototype-images">Prototype Images</a> - Screenshots showcasing the working prototype.
+
+</div>
+
+
 
 ---
 
@@ -64,7 +70,6 @@ Instead of following the same roadmap, learners receive relevant resources, pers
 | API Communication | RESTful Architecture, Axios, JSON |
 | Background Processing | APScheduler, Parallel Resource Discovery |
 | Testing | Pytest, Automated API Testing |
-| Image Generation | Pillow, Matplotlib |
 | Development & Deployment | Git, GitHub, Uvicorn, Environment-Based Configuration |
 
 ## Future Development
