@@ -92,11 +92,6 @@ Atlas aims to make learning more personal, adaptive, and goal-oriented.
 ## Project Flow
 ![Project Flow](./static/diagram.png)
 
-
-
-## Project Flow
-![Project Flow](./static/diagram.png)
-
 ## Prototype Images
 
 ### 1. User Registration
