@@ -3,14 +3,14 @@
 
 ### Navigation
 
-- <a href="#atlas-learning-that-understands-you">About Atlas</a> — Introduction and the problem Atlas addresses.
-- <a href="#our-solution">Our Solution</a> — What Atlas does and how it helps learners.
-- <a href="#how-it-works">How It Works</a> — Step-by-step learning workflow.
-- <a href="#key-features">Key Features</a> — Main capabilities of the platform.
-- <a href="#technology-stack">Technology Stack</a> — Technologies and tools used to build Atlas.
-- <a href="#future-development">Future Development</a> — Planned improvements and upcoming features.
-- <a href="#our-vision">Our Vision</a> — The long-term goal of Atlas.
-- <a href="#prototype-images">Prototype Images</a> — Screenshots showcasing the working prototype.
+- <a href="#atlas-learning-that-understands-you">About Atlas</a> - Introduction and the problem Atlas addresses.
+- <a href="#our-solution">Our Solution</a> - What Atlas does and how it helps learners.
+- <a href="#how-it-works">How It Works</a> - Step-by-step learning workflow.
+- <a href="#key-features">Key Features</a> - Main capabilities of the platform.
+- <a href="#technology-stack">Technology Stack</a> - Technologies and tools used to build Atlas.
+- <a href="#future-development">Future Development</a> - Planned improvements and upcoming features.
+- <a href="#our-vision">Our Vision</a> - The long-term goal of Atlas.
+- <a href="#prototype-images">Prototype Images</a> - Screenshots showcasing the working prototype.
 
 </div>
 
