@@ -64,7 +64,6 @@ Instead of following the same roadmap, learners receive relevant resources, pers
 | API Communication | RESTful Architecture, Axios, JSON |
 | Background Processing | APScheduler, Parallel Resource Discovery |
 | Testing | Pytest, Automated API Testing |
-| Image Generation | Pillow, Matplotlib |
 | Development & Deployment | Git, GitHub, Uvicorn, Environment-Based Configuration |
 
 ## Future Development
