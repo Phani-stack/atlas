@@ -63,34 +63,54 @@ Atlas aims to make learning more personal, adaptive, and goal-oriented.
 
 ## Prototype Images
 
-Multiple users can register
-![Atlas Dashboard](./static/sample_image_1.png)
+### 1. User Registration
+Multiple users can register and access their accounts.
 
-A user have multiple space - each space have it's own learing path
-![Atlas Dashboard](./static/sample_image_2.png)
+![User Registration](./static/sample_image_1.png)
 
-A user can enter anything that he/she want to learn
-![Atlas Dashboard](./static/sample_image_3.png)
+### 2. Multiple Learning Spaces
+Each user can create multiple spaces, each with its own learning path.
 
-Ignore what you already learnt and set your target
-![Atlas Dashboard](./static/sample_image_4.png)
+![Learning Spaces](./static/sample_image_2.png)
 
-Personalized roadmap and beloning resources
-![Atlas Dashboard](./static/sample_image_5.png)
+### 3. Choose What to Learn
+Enter any subject, skill, or topic you want to learn.
 
-Every resource and it's status
-![Atlas Dashboard](./static/sample_image_6.png)
+![Learning Goal](./static/sample_image_3.png)
 
-Current modules information and tracking
-![Atlas Dashboard](./static/sample_image_7.png)
+### 4. Set Your Learning Target
+Skip concepts you already know and define your learning goals.
 
-AI creates dynamic questions based on your knowledge, goals and previous answers
-![Atlas Dashboard](./static/sample_image_8.png)
+![Learning Target](./static/sample_image_4.png)
 
-Gives proper explaination of wrong answers
-![Atlas Dashboard](./static/sample_image_9.png)
+### 5. Personalized Roadmap
+Get a structured roadmap with relevant learning resources.
 
-Adaptive learning and question making by AI
-![Atlas Dashboard](./static/sample_image_10.png)
+![Personalized Roadmap](./static/sample_image_5.png)
+
+### 6. Resource Tracking
+View recommended resources and track their status.
+
+![Resource Tracking](./static/sample_image_6.png)
+
+### 7. Module Progress
+View current modules, learning objectives, and progress.
+
+![Module Progress](./static/sample_image_7.png)
+
+### 8. Dynamic Question Generation
+AI generates questions based on your knowledge, goals, and previous answers.
+
+![Dynamic Questions](./static/sample_image_8.png)
+
+### 9. Detailed Answer Explanations
+Understand incorrect answers through clear explanations.
+
+![Answer Explanations](./static/sample_image_9.png)
+
+### 10. Adaptive Learning
+Question difficulty and upcoming activities adapt to your performance.
+
+![Adaptive Learning](./static/sample_image_10.png)
 
 **Atlas — A smarter way to understand how you learn.**
