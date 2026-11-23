@@ -1,4 +1,4 @@
-# ATLAS — Learning That Understands You
+# ATLAS : Learning That Understands You
 
 What if a learning platform could understand what you already know, identify your knowledge gaps, and guide you on what to learn next?
 
@@ -14,12 +14,12 @@ Instead of following the same roadmap, learners receive relevant resources, pers
 
 ## How It Works
 
-1. **Understand the Learner** — Identify existing knowledge, goals, and available study time.
-2. **Build a Roadmap** — Generate structured learning paths with modules, prerequisites, and objectives.
-3. **Discover Resources** — Find relevant materials from websites, documentation, YouTube, and academic sources.
-4. **Practice and Assess** — Generate questions, problems, and coding challenges.
-5. **Track Understanding** — Measure concept-level mastery, identify weaknesses, and adjust difficulty.
-6. **Adapt Continuously** — Update upcoming learning activities based on learner performance.
+1. **Understand the Learner** : Identify existing knowledge, goals, and available study time.
+2. **Build a Roadmap** : Generate structured learning paths with modules, prerequisites, and objectives.
+3. **Discover Resources** : Find relevant materials from websites, documentation, YouTube, and academic sources.
+4. **Practice and Assess** : Generate questions, problems, and coding challenges.
+5. **Track Understanding** : Measure concept-level mastery, identify weaknesses, and adjust difficulty.
+6. **Adapt Continuously** : Update upcoming learning activities based on learner performance.
 
 ## Key Features
 
