@@ -1,4 +1,4 @@
-"""Atlas API server entry point."""
+"""Atlas API server entry point"""
 
 import uvicorn
 
