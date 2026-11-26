@@ -49,7 +49,7 @@ Atlas follows a hybrid online-offline approach to ensure a continuous learning e
 
 - **Online Resource Generation:** An internet connection is required to discover learning resources, generate personalized roadmaps, retrieve external content, and prepare learning materials.
 - **Offline Learning:** Once the learning resources and required knowledge are generated and stored locally, learners can continue practicing without an internet connection.
-- **Offline Question Generation:** Atlas uses locally stored learning content and knowledge to generate questions, explanations, and adaptive assessments without requiring continuous API access.
+- **Offline Question Generation:** Atlas uses locally stored learning content and knowledge to generate questions, explanations and adaptive assessments without requiring continuous API access.
 - **Continuous Adaptation:** Learner responses and performance are tracked locally, allowing the learning engine to adjust question difficulty and recommend further practice based on previous performance.
 
 This approach reduces dependency on internet connectivity and external AI APIs during everyday learning and practice.
