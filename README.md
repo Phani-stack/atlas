@@ -106,6 +106,8 @@ Atlas aims to make learning more personal, adaptive, and goal-oriented.
 ## Project Flow
 ![Project Flow](./static/diagram.png)
 
+> **Note:** Atlas follows a hybrid online-offline architecture, so a live demo link is currently unavailable. To experience the complete functionality, including offline question generation and adaptive learning, please clone the repository and run the application locally or consider images below.
+
 ## Prototype Images
 
 ### 1. User Registration
