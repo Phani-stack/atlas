@@ -25,6 +25,8 @@ Most learning platforms provide predefined courses and fixed learning paths. But
 
 The problem is not the lack of learning resources. It is finding the right learning path for each individual.
 
+Even though internet access is affordable in countries like India, including campuses such as Aditya and DOTT, learners in remote areas and other parts of the world may still face connectivity or affordability challenges.
+
 ## Our Solution
 
 Atlas is an adaptive learning platform that creates personalized learning journeys based on a learner's existing knowledge, goals, and performance.
@@ -39,6 +41,18 @@ Instead of following the same roadmap, learners receive relevant resources, pers
 4. **Practice and Assess** : Generate questions, problems, and coding challenges.
 5. **Track Understanding** : Measure concept-level mastery, identify weaknesses, and adjust difficulty.
 6. **Adapt Continuously** : Update upcoming learning activities based on learner performance.
+7. **Offline Learning**: Atlas uses a hybrid online-offline approach: internet is required for initial resource generation, while question generation, practice, and adaptive learning can continue offline using locally stored content.
+
+## Online Resource Generation & Offline Learning
+
+Atlas follows a hybrid online-offline approach to ensure a continuous learning experience.
+
+- **Online Resource Generation:** An internet connection is required to discover learning resources, generate personalized roadmaps, retrieve external content, and prepare learning materials.
+- **Offline Learning:** Once the learning resources and required knowledge are generated and stored locally, learners can continue practicing without an internet connection.
+- **Offline Question Generation:** Atlas uses locally stored learning content and knowledge to generate questions, explanations, and adaptive assessments without requiring continuous API access.
+- **Continuous Adaptation:** Learner responses and performance are tracked locally, allowing the learning engine to adjust question difficulty and recommend further practice based on previous performance.
+
+This approach reduces dependency on internet connectivity and external AI APIs during everyday learning and practice.
 
 ## Key Features
 
