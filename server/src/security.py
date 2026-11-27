@@ -1,4 +1,4 @@
-"""Security facade module forwarding to core security module."""
+"""Security facade module forwarding to core security module"""
 from .core.security import (
     JWT_ALGORITHM,
     JWT_ISSUER,
